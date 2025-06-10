@@ -10,7 +10,22 @@
 #                                                                              #
 # **************************************************************************** #
 
-XFLAGS =  -lmlx -lXext -lX11
+NAME = main.out
 
+SOURCES = main.c
 
-cc main.c -lmlx -lXext -lX11 -Lminilibx-linux
+FLAGS += -lmlx -lXext -lX11 -Lminilibx-linux
+
+RM += rm -f
+
+all: $(NAME)
+
+$(NAME):
+	cc $(SOURCES) $(FLAGS) -o $(NAME)
+
+clean:
+	$(RM) $(NAME)
+
+re: clean all
+
+.PHONY: all clean re
