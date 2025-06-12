@@ -12,36 +12,62 @@
 
 #include "so_long.h"
 
-#define MALLOC_ERROR 1
-#define WIDTH 500
-#define HEIGHT 500
+#define MALLOC_ERROR	1
+#define WIDTH 			600
+#define HEIGHT 			600
 
-int	handle_key(int keysim,t_mlx_data *data)
+int	handle_key(int keysim, t_mlx_data *data)
 {
 
 	if (keysim == XK_Escape)
-		handle_esc(keysim, data);
-/*  	if (keysim == 119 | 65362 ) //w
+		{
+			mlx_destroy_window(data->con, data->win);
+			mlx_destroy_display(data->con);
+			free(data->con);
+			exit(1);
+		}
+ 	if (keysim == XK_w || keysim == XK_Up)
 		handle_w(data);
-	if (keysim == 97 || 65361) //a
+	if (keysim == XK_a || keysim == XK_Left)
 		handle_a(data);
-	if (keysim == 115 || 65364) //s
+	if (keysim == XK_s || keysim == XK_Down)
 		handle_s(data);
-	if (keysim == 100 || 65363) //d
-		handle_d(data); */
-	printf ("%d\n", keysim);
-	return (0);
+	if (keysim == XK_d || keysim == XK_Right)
+		handle_d(data);
+	printf("Key: %d | Pos X: %d, Pos Y: %d\n", keysim, data->pos_x, data->pos_y);
+	return (1);
 }
 
+int	render(t_mlx_data *data)
+{
+	int x;
+	int y;
 
+	x = 0;
+	y = 0;
+	memset(data->img.addr, 0, HEIGHT * data->img.line_length);
+	mlx_clear_window(data->con, data->win);
+	while(x < 20)
+	{
+		while(y < 20)
+		{
+			my_mlx_pixel_put(&data->img, x + data->pos_x, y + data->pos_y, 0x000010FF);
+			y++;
+		}
+		y = 0;
+		x++;
+	}
+	mlx_put_image_to_window(data->con, data->win, data->img.mlx_img, 0, 0);
+	mlx_do_sync(data->con);
+	return(1);
+}
 int	main(void)
 {
 	t_mlx_data	data;
-	void *img;
-	char *path = "avatar.xpm";
-	int wi;
-	int he;
-	
+
+	data.pos_x = 0;
+	data.pos_y = 0;
+
 	data.con = mlx_init();
 	if (!data.con)
 		return (MALLOC_ERROR);
@@ -51,20 +77,15 @@ int	main(void)
 		free(data.con);
 		return (MALLOC_ERROR);
 	}
-
-	img = mlx_xpm_file_to_image(data.con, path, &wi, &he);
- 	/* data.img.mlx_img = mlx_new_image(data.con, WIDTH, HEIGHT);
-	data.img.addr = mlx_get_data_addr(data.img.mlx_img, &data.img.bits_per_pixel, &data.img.line_length,
-								&data.img.endian);
-	for (int x = 30; x < 250; x++)
-	{
-		for (int y = 30; y < 250; y++)
-			if (y % 2 == 0)
-				my_mlx_pixel_put(&data.img, x, y, 0x000010FF);
-	}*/
-	mlx_put_image_to_window(data.con, data.win, &img, 0, 0);
+	data.img.mlx_img = mlx_new_image(data.con, WIDTH, HEIGHT);
+	data.img.addr = mlx_get_data_addr(data.img.mlx_img, 
+									&data.img.bits_per_pixel, &data.img.line_length, 
+									&data.img.endian);
+	data.img.len = HEIGHT;
+	data.img.wid = WIDTH;
+	mlx_loop_hook(data.con, render, &data);
 	mlx_key_hook(data.win, handle_key, &data);
 	mlx_loop(data.con);
-	mlx_destroy_display(data.con);
-	free(data.con);
+	mlx_destroy_image(data.con, data.img.mlx_img);
+	return (0);
 }

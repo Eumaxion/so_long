@@ -5,12 +5,15 @@
 #include "minilibx-linux/mlx_int.h"
 #include <stdio.h>
 
+
 typedef struct	st_img
 {
 	void	*mlx_img;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
+	int		len;
+	int		wid;
 	int		endian;
 }				tt_img;
 
@@ -18,17 +21,22 @@ typedef struct s_mlx_data
 {
 	void	*con;
 	void	*win;
-	void	*textures[5];
-	//t_map	*map;
+	int		pos_x;
+	int		pos_y;
+	tt_img	img;
 }			t_mlx_data;
 
-typedef struct s_map
+
+/* typedef struct s_map
 {
-	/* data */
-}			t_map;
+}			t_map; */
 
 int		main();
 void	my_mlx_pixel_put(tt_img *data, int x, int y, int color);
 int		handle_esc(int key,t_mlx_data *data);
+int handle_w(t_mlx_data *data);
+int handle_a(t_mlx_data *data);
+int handle_s(t_mlx_data *data);
+int handle_d(t_mlx_data *data);
 
 #endif
