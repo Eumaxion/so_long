@@ -12,60 +12,25 @@
 
 #include "so_long.h"
 
-#define MALLOC_ERROR	1
-#define WIDTH 			600
-#define HEIGHT 			600
-
-int	handle_key(int keysim, t_mlx_data *data)
+int	handle_args(char *arg)
 {
+	char *str;
 
-	if (keysim == XK_Escape)
-		{
-			mlx_destroy_window(data->con, data->win);
-			mlx_destroy_display(data->con);
-			free(data->con);
-			exit(1);
-		}
- 	if (keysim == XK_w || keysim == XK_Up)
-		handle_w(data);
-	if (keysim == XK_a || keysim == XK_Left)
-		handle_a(data);
-	if (keysim == XK_s || keysim == XK_Down)
-		handle_s(data);
-	if (keysim == XK_d || keysim == XK_Right)
-		handle_d(data);
-	printf("Key: %d | Pos X: %d, Pos Y: %d\n", keysim, data->pos_x, data->pos_y);
-	return (1);
+	str = ft_strchr(arg, '.');
+	if (!str)
+		return (0);
+	return(ft_strcmp(str, "ber"));
 }
 
-int	render(t_mlx_data *data)
+int	main(int argc, char *argv[])
 {
-	int x;
-	int y;
+	//t_mlx_data	data;
 
-	x = 0;
-	y = 0;
-	memset(data->img.addr, 0, HEIGHT * data->img.line_length);
-	mlx_clear_window(data->con, data->win);
-	while(x < 20)
-	{
-		while(y < 20)
-		{
-			my_mlx_pixel_put(&data->img, x + data->pos_x, y + data->pos_y, 0x000010FF);
-			y++;
-		}
-		y = 0;
-		x++;
-	}
-	mlx_put_image_to_window(data->con, data->win, data->img.mlx_img, 0, 0);
-	mlx_do_sync(data->con);
-	return(1);
-}
-int	main(void)
-{
-	t_mlx_data	data;
-
-	data.pos_x = 0;
+	if (argc != 2)
+		return(1);
+	if (handle_args(argv[1]))
+		return(1);
+	/* data.pos_x = 0;
 	data.pos_y = 0;
 
 	data.con = mlx_init();
@@ -87,5 +52,5 @@ int	main(void)
 	mlx_key_hook(data.win, handle_key, &data);
 	mlx_loop(data.con);
 	mlx_destroy_image(data.con, data.img.mlx_img);
-	return (0);
+	return (0); */
 }

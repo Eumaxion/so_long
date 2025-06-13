@@ -12,19 +12,23 @@
 
 NAME = main.out
 
-SOURCES = main.c utils.c
+SCR = main.c
+
+OBJ = $(SCR:.c=.o)
 
 FLAGS += -lmlx -lXext -lX11 -Lminilibx-linux
 
-RM += rm -f
+CFLAGS += -Wall -Werror -Wextra
 
 all: $(NAME)
 
-$(NAME):
-	@cc $(SOURCES) $(FLAGS) -o $(NAME)
+$(NAME):$(OBJ)
+	@cd Libft && make
+	cc $(OBJ)  $(CFLAGS) ./Libft/libft.a -o $(NAME)
 
 clean:
-	@$(RM) $(NAME)
+	@rm -f $(NAME)
+	make -C Libft fclean
 
 re: clean all
 
