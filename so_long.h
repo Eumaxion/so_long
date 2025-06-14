@@ -7,11 +7,12 @@
 
 #include "minilibx-linux/mlx.h"
 #include "minilibx-linux/mlx_int.h"
-#include "Libft/libft.h"
+#include "libft/libft.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 
-typedef struct	st_img
+typedef struct	s_img
 {
 	void	*mlx_img;
 	char	*addr;
@@ -20,25 +21,31 @@ typedef struct	st_img
 	int		len;
 	int		wid;
 	int		endian;
-}				tt_img;
+}				t_img;
 
 typedef struct s_mlx_data 
 {
 	void	*con;
 	void	*win;
+	int		size_x;
+	int		size_y;
 	int		pos_x;
 	int		pos_y;
-	tt_img	img;
+	t_img	img;
 }			t_mlx_data;
 
-
-/* typedef struct s_map
+typedef struct s_map
 {
-}			t_map; */
+	char	**map;
+	void	*objc;
+	int		x;
+	int		y;
+	int		colect;
+}			t_map;
 
 int		main(int argc, char *argv[]);
 int		handle_args(char *arg);
-void	my_mlx_pixel_put(tt_img *data, int x, int y, int color);
+void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 int		handle_esc(int key,t_mlx_data *data);
 int 	handle_w(t_mlx_data *data);
 int 	handle_a(t_mlx_data *data);

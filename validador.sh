@@ -39,3 +39,51 @@ if [ $? -ne 0 ]; then
 else
     echo "Teste 4 falhou"
 fi
+
+# Teste 5: map sem exit
+./main.out map.ber > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    echo "Teste 3 ok (arquivo valido)"
+else
+    echo "Teste 3 falhou"
+fi
+
+# Teste 6: map com mais de 1 exit
+./main.out map.ber > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    echo "Teste 3 ok (arquivo valido)"
+else
+    echo "Teste 3 falhou"
+fi
+
+# Teste 7: map sem player
+./main.out map.ber > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    echo "Teste 3 ok (arquivo valido)"
+else
+    echo "Teste 3 falhou"
+fi
+
+# Teste 8: map com mais de 1 player
+./main.out map.ber > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    echo "Teste 3 ok (arquivo valido)"
+else
+    echo "Teste 3 falhou"
+fi
+
+# Teste 5: map sem exit
+./main.out map.ber > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    echo "Teste 3 ok (arquivo valido)"
+else
+    echo "Teste 3 falhou"
+fi
+
+# Teste 5: map sem colectables
+./main.out map.ber > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    echo "Teste 3 ok (arquivo valido)"
+else
+    echo "Teste 3 falhou"
+fi
