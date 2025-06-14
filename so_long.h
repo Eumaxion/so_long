@@ -46,5 +46,6 @@ int 	handle_s(t_mlx_data *data);
 int 	handle_d(t_mlx_data *data);
 int		handle_key(int keysim, t_mlx_data *data);
 int		render(t_mlx_data *data);
+int		check_map(char *arg);
 
 #endif

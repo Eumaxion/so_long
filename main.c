@@ -32,6 +32,8 @@ int	main(int argc, char *argv[])
 	if (handle_args(argv[1]))
 		return(1);
 	return(0);
+	if (check_map(argv[1]))
+		return(1);
 	/* data.pos_x = 0;
 	data.pos_y = 0;
 
