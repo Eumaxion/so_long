@@ -14,12 +14,13 @@
 
 int	handle_args(char *arg)
 {
-	char *str;
-
+	char	*str;
+	int		cmp;
 	str = ft_strchr(arg, '.');
 	if (!str)
-		return (0);
-	return(ft_strcmp(str, "ber"));
+	return (1);
+	cmp = ft_strcmp(str, "ber");
+	return(cmp);
 }
 
 int	main(int argc, char *argv[])
@@ -30,6 +31,7 @@ int	main(int argc, char *argv[])
 		return(1);
 	if (handle_args(argv[1]))
 		return(1);
+	return(0);
 	/* data.pos_x = 0;
 	data.pos_y = 0;
 

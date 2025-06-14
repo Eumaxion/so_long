@@ -24,11 +24,11 @@ all: $(NAME)
 
 $(NAME):$(OBJ)
 	@cd Libft && make
-	cc $(OBJ)  $(CFLAGS) ./Libft/libft.a -o $(NAME)
+	@cc $(OBJ)  $(CFLAGS) ./Libft/libft.a -o $(NAME)
 
 clean:
-	@rm -f $(NAME)
-	make -C Libft fclean
+	@rm -f $(NAME) $(OBJ)
+	@make -C Libft fclean
 
 re: clean all
 
