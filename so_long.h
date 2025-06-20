@@ -47,6 +47,7 @@ int			is_rectangle(char **map);
 int			is_surrounded_wall(char **map);
 int			check_itens(t_game *data);
 int			is_valid(char **map);
+void	gather_elements(t_game *data);
 void 		free_map(char *map[]);
 void		my_mlx_pixel_put(t_img *data, int x, int y, int color);
 int			handle_esc(int key,t_game *data);

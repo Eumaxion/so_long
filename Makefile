@@ -6,13 +6,13 @@
 #    By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/07 17:11:36 by mlima-si          #+#    #+#              #
-#    Updated: 2025/06/11 13:52:43 by mlima-si         ###   ########.fr        #
+#    Updated: 2025/06/20 18:38:17 by mlima-si         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = main.out
 
-SCR = so_long.c check_map.c read_map.c exit_game.c
+SCR = so_long.c check_map.c read_map.c exit_game.c gather_elements.c
 
 OBJ = $(SCR:.c=.o)
 

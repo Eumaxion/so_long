@@ -5,8 +5,11 @@ int is_rectangle(char *map[])
 	int	i;
 
 	i = 1;
-	if (!map)
-		return (0);
+	if (!map[0])
+	{
+		printf("Invalid void map.\n");
+		return(0);
+	}
 	while (map[i])
 	{
 		if (ft_strlen(map[i]) != ft_strlen(map[0]))
@@ -33,7 +36,7 @@ int is_surrounded_wall(char *map[])
 	{
 		if (map[0][j] != '1' || map[i - 1][j] != '1')
 		{
-			printf("Is NOT surrounded by walls...\n");
+			printf("First or last not surrounded by walls...\n");
 			return (0);
 		}
 		j++;

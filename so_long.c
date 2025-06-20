@@ -6,7 +6,7 @@
 /*   By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/07 14:54:46 by mlima-si          #+#    #+#             */
-/*   Updated: 2025/06/20 17:20:21 by mlima-si         ###   ########.fr       */
+/*   Updated: 2025/06/20 18:37:59 by mlima-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,16 @@ int	handle_args(char *arg)
 
 int	main(int argc, char *argv[])
 {
-	int i;
 	t_game	data;
 
 	if (argc == 2)
 	{
 		data.tmap.map = read_map(argv[1]);
-		i = 0;
 		if (handle_args(argv[1]) && check_map(&data))
 		{
 			printf("valid map\n");
+			gather_elements(&data);
+			mlx_loop(data.mlx);
 			free_map(data.tmap.map);
 			exit(1);
 		}
