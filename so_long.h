@@ -23,9 +23,6 @@ typedef struct s_map
 	int		map_h;
 	int		img_w;
 	int		img_h;
-	int		colect;
-	int		player;
-	int		exit;
 }			t_map;
 
 typedef struct s_game 
@@ -36,8 +33,10 @@ typedef struct s_game
 	int		y_player;
 	int		moves;
 	int		endgame;
+	int		colect;
+	int		player;
+	int		exit;
 	t_map	tmap;
-
 }			t_game;
 
 int			main(int argc, char *argv[]);
@@ -48,7 +47,7 @@ int			is_rectangle(char **map);
 int			is_surrounded_wall(char **map);
 int			check_itens(t_game *data);
 int			is_valid(char **map);
-void 		free_map(char **map);
+void 		free_map(char *map[]);
 void		my_mlx_pixel_put(t_img *data, int x, int y, int color);
 int			handle_esc(int key,t_game *data);
 int			handle_w(t_game *data);

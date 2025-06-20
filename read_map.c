@@ -7,6 +7,7 @@ char **read_map(char *path)
 	char	*holder_map;
 	char	*holder;
 	char	**map;
+	int		i;
 	
 	fd = open(path, O_RDONLY);
 	if(fd == -1)
@@ -20,9 +21,14 @@ char **read_map(char *path)
 		holder = holder_map;
 		holder_map = ft_strjoin(holder, line);
 		free(line);
-		free(holder);
 	}
 	map = ft_split(holder_map, '\n');
+	i = 0;
+	while (map[i])
+	{
+		printf("%s\n", map[i]);
+		i++;
+	}
 	free(holder_map);
 	close(fd);
 	return (map);
