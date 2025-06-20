@@ -1,17 +1,17 @@
 ---------------- Map checklist ----------------
 
-''''''Does the map file exist ?
+//Does the map file exist ?
+//Simply count how many E you find on the map.
+//Is there only one start position ?
+//Simply count how many P you find on the map.
+//Is there at least one collectibles ?
+//Simply count how many C you find on the map.
 Is the map rectangular ?
 All the lines should be the same length.
 Is there something in the map file ?
 Is the map enclosed in walls ?
 Check the first and last lines and columns, they should all be 1
 Is there only one exit ?
-Simply count how many E you find on the map.
-Is there only one start position ?
-Simply count how many P you find on the map.
-Is there at least one collectibles ?
-Simply count how many C you find on the map.
 is the exit accessible from the start position
 are all the collectibles accessible from the start position
 

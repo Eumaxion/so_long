@@ -12,7 +12,7 @@
 
 NAME = main.out
 
-SCR = main.c
+SCR = so_long.c check_map.c read_map.c exit_game.c
 
 OBJ = $(SCR:.c=.o)
 
@@ -23,12 +23,12 @@ CFLAGS += -Wall -Werror -Wextra
 all: $(NAME)
 
 $(NAME):$(OBJ)
-	@cd Libft && make
-	@cc $(OBJ)  $(CFLAGS) ./Libft/libft.a -o $(NAME)
+	@cd libft && make
+	@cc $(OBJ)  $(CFLAGS) ./libft/libft.a -o $(NAME)
 
 clean:
 	@rm -f $(NAME) $(OBJ)
-	@make -C Libft fclean
+	@make -C libft fclean
 
 re: clean all
 

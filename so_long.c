@@ -16,24 +16,49 @@ int	handle_args(char *arg)
 {
 	char	*str;
 	int		cmp;
+
 	str = ft_strchr(arg, '.');
 	if (!str)
-	return (1);
+		return (1);
 	cmp = ft_strcmp(str, "ber");
 	return(cmp);
 }
 
 int	main(int argc, char *argv[])
 {
-	//t_mlx_data	data;
+	int i;
+	t_game	data;
 
-	if (argc != 2)
-		return(1);
-	if (handle_args(argv[1]))
-		return(1);
+	if (argc == 2)
+	{
+		data.tmap.map = read_map(argv[1]);
+		if (handle_args(argv[1]) && check_map(&data))
+		{
+			i = 0;
+			while (data.tmap.map[i])
+			{
+				printf("%s", data.tmap.map[i]);
+				i++;
+			}
+			free_map(&data.tmap.map);
+			exit(1);
+		}
+		else
+		{
+			if (data.tmap.map)
+			{
+				free_map(&data.tmap.map);
+				printf("invalid map.");
+				exit(1);
+			}
+		}
+	}
+	else
+	{
+		printf("ERROR\n");
+		exit(1);
+	}
 	return(0);
-	if (check_map(argv[1]))
-		return(1);
 	/* data.pos_x = 0;
 	data.pos_y = 0;
 

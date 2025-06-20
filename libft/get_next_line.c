@@ -18,19 +18,19 @@ char	*set_line(char *line, char *stash);
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	stash[MAX_FD][BUFFER_SIZE + 1];
+	static char	stash[BUFFER_SIZE + 1];
 
-	if (fd < 0 || fd >= MAX_FD || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	line = NULL;
-	if (stash[fd][0])
-		line = ft_strjoin(line, stash[fd]);
-	if (ft_strchr_n(stash[fd]) >= 0)
-		return (set_line(line, stash[fd]));
-	line = read_line(line, stash[fd], fd);
+	if (stash[0])
+		line = ft_strjoin(line, stash);
+	if (ft_strchr_n(stash) >= 0)
+		return (set_line(line, stash));
+	line = read_line(line, stash, fd);
 	if (!line)
 		return (NULL);
-	line = set_line(line, stash[fd]);
+	line = set_line(line, stash);
 	return (line);
 }
 

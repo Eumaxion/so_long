@@ -2,11 +2,7 @@
 # define LIBFT_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 3
-# endif
-
-# ifndef MAX_FD
-#  define MAX_FD 1024
+#  define BUFFER_SIZE 128
 # endif
 
 #include <stdlib.h>
@@ -21,5 +17,8 @@ size_t	ft_strlen(const char *str);
 char	*ft_strjoin(char *line, char *stash);
 void	ft_memmove(char *stash);
 char	*release(char *line, char *stash);
+char	*ft_strdup(const char *str);
+char	**ft_split(char const *s, char c);
+size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 
 #endif
