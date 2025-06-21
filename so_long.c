@@ -6,7 +6,7 @@
 /*   By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/07 14:54:46 by mlima-si          #+#    #+#             */
-/*   Updated: 2025/06/20 18:37:59 by mlima-si         ###   ########.fr       */
+/*   Updated: 2025/06/21 12:43:24 by mlima-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int	main(int argc, char *argv[])
 		{
 			printf("valid map\n");
 			gather_elements(&data);
+			render_map(&data);
+			//mlx_loop_hook(data.mlx, );
 			mlx_loop(data.mlx);
 			free_map(data.tmap.map);
 			exit(1);

@@ -1,17 +1,17 @@
 ---------------- Map checklist ----------------
 
-//Does the map file exist ?
-//Simply count how many E you find on the map.
-//Is there only one start position ?
-//Simply count how many P you find on the map.
-//Is there at least one collectibles ?
-//Simply count how many C you find on the map.
-Is the map rectangular ?
-All the lines should be the same length.
-Is there something in the map file ?
-Is the map enclosed in walls ?
-Check the first and last lines and columns, they should all be 1
-Is there only one exit ?
+-> -> -> -> -> Does the map file exist ?
+-> -> -> -> -> Simply count how many E you find on the map.
+-> -> -> -> -> Is there only one start position ?
+-> -> -> -> -> Simply count how many P you find on the map.
+-> -> -> -> -> Is there at least one collectibles ?
+-> -> -> -> -> /Simply count how many C you find on the map.
+-> -> -> -> -> Is the map rectangular ?
+-> -> -> -> -> All the lines should be the same length.
+-> -> -> -> -> Is there something in the map file ?
+-> -> -> -> -> Is the map enclosed in walls ?
+-> -> -> -> -> Check the first and last lines and columns, they should all be 1
+-> -> -> -> -> Is there only one exit ?
 is the exit accessible from the start position
 are all the collectibles accessible from the start position
 
@@ -45,3 +45,12 @@ check if all collectibles have been collected
 if yes, unlock the exit
 update your map 2D array and replace the collectible by a "floor" tile so that it is not drawn in the next iteration of the game loop.
 If the requested new position is not a wall, nor a collectible, nor outside the map, simply set the player position to the requested new position.
+
+
+
+
+https://admurin.itch.io/top-down-mobs-dog?download <<<< player
+https://henrysoftware.itch.io/pixel-food << colectable
+https://pixel-ametist.itch.io/pixel-background-and-textures << background
+https://toffeecraft.itch.io/pet-virtual-mobile-pixel-asset << exit
+https://piiixl.itch.io/textures << walls

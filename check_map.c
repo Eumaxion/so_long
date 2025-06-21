@@ -116,7 +116,17 @@ int is_valid(char *map[])
 }
 int check_map(t_game *data)
 {
+	int	i;
+	int	j;
+
 	if(is_rectangle(data->tmap.map) && is_surrounded_wall(data->tmap.map) && check_itens(data) && is_valid(data->tmap.map))
+	{
+		i = ft_strlen(data->tmap.map[0]);
+		data->tmap.map_x = i - 1;
+		while (data->tmap.map[0][j])
+			j++;
+		data->tmap.map_y = j - 1;
 		return(1);
+	}
 	return(0);
 }
