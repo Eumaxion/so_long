@@ -97,11 +97,11 @@ int check_map(t_game *data)
 	if(is_rectangle(data->tmap.map) && is_surrounded_wall(data->tmap.map) && check_itens(data) && is_valid(data->tmap.map))
 	{
 		i = ft_strlen(data->tmap.map[0]);
-		data->tmap.map_x = i - 1;
+		data->tmap.map_x = i * PIXS;
 		j = 0;
 		while (data->tmap.map[0][j])
 			j++;
-		data->tmap.map_y = j;
+		data->tmap.map_y = j * PIXS;
 		return(1);
 	}
 	return(0);
