@@ -19,4 +19,6 @@ void	create_player(t_game *data)
 	data->t_player.player_down = mlx_xpm_file_to_image(data->mlx,"./assets/player_down.xpm", &data->tmap.img_x, &data->tmap.img_y);
 	data->t_player.player_walk_l = mlx_xpm_file_to_image(data->mlx, "./assets/player_walk_l.xpm", &data->tmap.img_x, &data->tmap.img_y);
 	data->t_player.player_walk_r = mlx_xpm_file_to_image(data->mlx, "./assets/player_walk_r.xpm", &data->tmap.img_x, &data->tmap.img_y);
+	data->t_player.player_x = 0;
+	data->t_player.player_y = 0;
 }

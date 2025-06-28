@@ -33,6 +33,8 @@ typedef struct s_player
 	void	*player_left;
 	void	*player_walk_l;
 	void	*player_walk_r;
+	int		player_x;
+	int		player_y;
 }			t_player;
 
 typedef struct s_game 
@@ -57,17 +59,18 @@ int			is_surrounded_wall(char **map);
 int			check_itens(t_game *data);
 int			is_valid(char **map);
 void		gather_elements(t_game *data);
-void		free_map(char *map[]);
+void		free_map(char **map);
 void		put_image(t_game *data, int x, int y);
 void		create_player(t_game *data);
-void		my_mlx_pixel_put(t_img *data, int x, int y, int color);
-int			handle_esc(int key,t_game *data);
+int			start_game(t_game *data);
+int			handle_key(int keysim, t_game *data);
+int			handle_esc(t_game *data);
 int			handle_w(t_game *data);
 int			handle_a(t_game *data);
 int			handle_s(t_game *data);
 int			handle_d(t_game *data);
-int			handle_key(int keysim, t_game *data);
-void		render_map(t_game *data);
+int			render_map(t_game *data);
+int			exit_game(t_game *data);
 
 
 /* void	img_draw(t_game *game, void *image, int x, int y);

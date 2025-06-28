@@ -16,7 +16,7 @@ void	put_image(t_game *data, int x, int y)
 		mlx_put_image_to_window(data->mlx, data->win, data->tmap.img_wall, x * PIXS, y * PIXS);
 }
 
-void render_map(t_game *data)
+int render_map(t_game *data)
 {
 	int x;
 	int y;
@@ -32,4 +32,5 @@ void render_map(t_game *data)
 		}
 		y++;
 	}
+	return(0);
 }
