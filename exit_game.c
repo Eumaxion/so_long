@@ -19,10 +19,10 @@ int	exit_game(t_game *data)
 	mlx_destroy_image(data->mlx, data->tmap.img_colect);
 	mlx_destroy_image(data->mlx, data->tmap.img_exit);
 	mlx_destroy_image(data->mlx, data->tmap.img_wall);
-	mlx_destroy_image(data->mlx, data->t_player.player_right);
+	mlx_destroy_image(data->mlx, data->t_player.player_pose);
 	mlx_destroy_window(data->mlx, data->win);
 	mlx_destroy_display(data->mlx);
 	free(data->mlx);
-	exit(0);
+	exit(1);
 	return (0);
 }

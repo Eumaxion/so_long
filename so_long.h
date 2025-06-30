@@ -27,12 +27,7 @@ typedef struct s_map
 
 typedef struct s_player
 {
-	void	*player_up;
-	void	*player_down;
-	void	*player_right;
-	void	*player_left;
-	void	*player_walk_l;
-	void	*player_walk_r;
+	void	*player_pose;
 	int		player_x;
 	int		player_y;
 }			t_player;
@@ -63,6 +58,7 @@ void		free_map(char **map);
 void		put_image(t_game *data, int x, int y);
 void		create_player(t_game *data);
 int			start_game(t_game *data);
+void		update_player_img(char c,t_game *data);
 int			handle_key(int keysim, t_game *data);
 int			handle_esc(t_game *data);
 int			handle_w(t_game *data);

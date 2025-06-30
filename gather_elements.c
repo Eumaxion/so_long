@@ -13,12 +13,28 @@ void	gather_elements(t_game *data)
 
 void	create_player(t_game *data)
 {
-	data->t_player.player_up = mlx_xpm_file_to_image(data->mlx, "./assets/player_up.xpm", &data->tmap.img_x, &data->tmap.img_y);
-	data->t_player.player_left = mlx_xpm_file_to_image(data->mlx,"./assets/player_left.xpm", &data->tmap.img_x, &data->tmap.img_y);
+	int x;
+	int y;
+	data->t_player.player_pose = mlx_xpm_file_to_image(data->mlx,"./assets/player_right.xpm", &data->tmap.img_x, &data->tmap.img_y);
+	y = 0;
+	x = 0;
+	while(data->tmap.map[y])
+	{
+		while(data->tmap.map[y][x])
+		{
+			if (data->tmap.map[y][x] == 'P')
+			{
+				data->t_player.player_x = x;
+				data->t_player.player_y = y;
+			}
+			x++;
+		}
+		x = 0;
+		y++;
+	}
+/* 	data->t_player.player_up = mlx_xpm_file_to_image(data->mlx, "./assets/player_up.xpm", &data->tmap.img_x, &data->tmap.img_y);
 	data->t_player.player_right = mlx_xpm_file_to_image(data->mlx,"./assets/player_right.xpm", &data->tmap.img_x, &data->tmap.img_y);
 	data->t_player.player_down = mlx_xpm_file_to_image(data->mlx,"./assets/player_down.xpm", &data->tmap.img_x, &data->tmap.img_y);
 	data->t_player.player_walk_l = mlx_xpm_file_to_image(data->mlx, "./assets/player_walk_l.xpm", &data->tmap.img_x, &data->tmap.img_y);
-	data->t_player.player_walk_r = mlx_xpm_file_to_image(data->mlx, "./assets/player_walk_r.xpm", &data->tmap.img_x, &data->tmap.img_y);
-	data->t_player.player_x = 0;
-	data->t_player.player_y = 0;
+	data->t_player.player_walk_r = mlx_xpm_file_to_image(data->mlx, "./assets/player_walk_r.xpm", &data->tmap.img_x, &data->tmap.img_y); */
 }
