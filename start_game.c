@@ -8,7 +8,6 @@ int	handle_esc(t_game *data)
 }
 int	handle_key(int keysim, t_game *data)
 {
-	printf("y = %d, x = %d \n", data->t_player.player_y, data->t_player.player_x);
 	if (keysim == 65307)
 		handle_esc(data);
 	if (keysim == 119 || keysim == 65362)
@@ -38,8 +37,7 @@ int	start_game(t_game *data)
 {
 	gather_elements(data);
 	render_map(data);
-	printf("y = %d, x = %d \n", data->t_player.player_y, data->t_player.player_x);
-	mlx_key_hook(data->win, handle_key, &data);
-	mlx_hook(data->win, 17, 0, exit_game, &data);
+	mlx_key_hook(data->win, handle_key, data);
+	mlx_hook(data->win, 17, 0, exit_game, data);
 	return(0);
 }
