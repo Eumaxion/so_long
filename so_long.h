@@ -4,7 +4,18 @@
 #define MALLOC_ERROR	1
 #define WIDTH 			600
 #define HEIGHT 			600
-#define PIXS	50
+#define PIXS			50
+
+#define key_esc			65307
+#define key_w			65362
+#define key_a			65361
+#define key_s			65364
+#define key_d			65363
+
+#define key_up			119
+#define key_left		97
+#define key_down		115
+#define key_right		100
 
 #include "minilibx-linux/mlx.h"
 #include "minilibx-linux/mlx_int.h"
@@ -41,7 +52,7 @@ typedef struct s_game
 	int			colect;
 	int			player;
 	int			exit;
-	t_map		tmap;
+	t_map		t_map;
 	t_player	t_player;
 }			t_game;
 

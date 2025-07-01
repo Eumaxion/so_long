@@ -50,16 +50,16 @@ int check_itens(t_game *data)
 	data->exit = 0;
 	data->player = 0;
 	i = 0;
-	while (data->tmap.map[i])
+	while (data->t_map.map[i])
 	{
 		j = 0;
-		while(data->tmap.map[i][j] != '\0')
+		while(data->t_map.map[i][j] != '\0')
 		{
-			if (data->tmap.map[i][j] == 'P')
+			if (data->t_map.map[i][j] == 'P')
 				data->player++;
-			if (data->tmap.map[i][j] == 'E')
+			if (data->t_map.map[i][j] == 'E')
 				data->exit++;
-			if (data->tmap.map[i][j] == 'C')
+			if (data->t_map.map[i][j] == 'C')
 				data->colect++;
 			j++;
 		}
@@ -94,14 +94,14 @@ int check_map(t_game *data)
 	int	i;
 	int	j;
 
-	if(is_rectangle(data->tmap.map) && is_surrounded_wall(data->tmap.map) && check_itens(data) && is_valid(data->tmap.map))
+	if(is_rectangle(data->t_map.map) && is_surrounded_wall(data->t_map.map) && check_itens(data) && is_valid(data->t_map.map))
 	{
-		i = ft_strlen(data->tmap.map[0]);
-		data->tmap.map_x = i * PIXS;
+		i = ft_strlen(data->t_map.map[0]);
+		data->t_map.map_x = i * PIXS;
 		j = 0;
-		while (data->tmap.map[0][j])
+		while (data->t_map.map[0][j])
 			j++;
-		data->tmap.map_y = j * PIXS;
+		data->t_map.map_y = j * PIXS;
 		return(1);
 	}
 	return(0);
