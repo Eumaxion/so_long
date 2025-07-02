@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_map.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/02 11:53:14 by mlima-si          #+#    #+#             */
+/*   Updated: 2025/07/02 13:04:18 by mlima-si         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
-int is_rectangle(char *map[])
+int	is_rectangle(char *map[])
 {
 	int	i;
 
 	i = 1;
 	if (!map[0])
-		return(0);
+		return (0);
 	while (map[i])
 	{
 		if (ft_strlen(map[i]) != ft_strlen(map[0]))
@@ -15,7 +27,8 @@ int is_rectangle(char *map[])
 	}
 	return (1);
 }
-int is_surrounded_wall(char *map[])
+
+int	is_surrounded_wall(char *map[])
 {
 	int	i;
 	int	j;
@@ -41,10 +54,11 @@ int is_surrounded_wall(char *map[])
 	}
 	return (1);
 }
-int check_itens(t_game *data)
+
+int	check_itens(t_game *data)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	data->colect = 0;
 	data->exit = 0;
@@ -53,7 +67,7 @@ int check_itens(t_game *data)
 	while (data->t_map.map[i])
 	{
 		j = 0;
-		while(data->t_map.map[i][j] != '\0')
+		while (data->t_map.map[i][j] != '\0')
 		{
 			if (data->t_map.map[i][j] == 'P')
 				data->player++;
@@ -65,11 +79,12 @@ int check_itens(t_game *data)
 		}
 		i++;
 	}
-	if(data->player != 1 || data->exit != 1 || data->colect == 0)
-		return(0);
-	return(1);
+	if (data->player != 1 || data->exit != 1 || data->colect == 0)
+		return (0);
+	return (1);
 }
-int is_valid(char *map[])
+
+int	is_valid(char *map[])
 {
 	int	i;
 	int	j;
@@ -80,7 +95,7 @@ int is_valid(char *map[])
 		j = 0;
 		while (map[i][j] != '\0')
 		{
-			if (map[i][j] != 'P' && map[i][j] != 'E' && map[i][j] != 'C' 
+			if (map[i][j] != 'P' && map[i][j] != 'E' && map[i][j] != 'C'
 				&& map[i][j] != '0' && map[i][j] != '1')
 				return (0);
 			j++;
@@ -89,20 +104,26 @@ int is_valid(char *map[])
 	}
 	return (1);
 }
-int check_map(t_game *data)
+
+int	check_map(t_game *data)
 {
 	int	i;
 	int	j;
 
-	if(is_rectangle(data->t_map.map) && is_surrounded_wall(data->t_map.map) && check_itens(data) && is_valid(data->t_map.map))
+	if (is_rectangle(data->t_map.map) && is_surrounded_wall(data->t_map.map)
+		&& check_itens(data) && is_valid(data->t_map.map))
 	{
-		i = ft_strlen(data->t_map.map[0]);
-		data->t_map.map_x = i * PIXS;
-		j = 0;
-		while (data->t_map.map[0][j])
-			j++;
-		data->t_map.map_y = j * PIXS;
-		return(1);
+		i = 0;
+		while (data->t_map.map[i])
+		{
+			j = 0;
+			while (data->t_map.map[i][j] != '\0')
+				j++;
+			i++;
+		}
+		data->t_map.map_x = j;
+		data->t_map.map_y = i;
+		return (1);
 	}
-	return(0);
+	return (0);
 }

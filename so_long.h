@@ -1,27 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/02 11:55:52 by mlima-si          #+#    #+#             */
+/*   Updated: 2025/07/02 12:20:34 by mlima-si         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
-#define SO_LONG_H
+# define SO_LONG_H
 
-#define MALLOC_ERROR	1
-#define WIDTH 			600
-#define HEIGHT 			600
-#define PIXS			50
+# define MALLOC_ERROR	1
+# define WIDTH 			600
+# define HEIGHT 			600
+# define PIXS			50
 
-#define key_esc			65307
-#define key_w			65362
-#define key_a			65361
-#define key_s			65364
-#define key_d			65363
+# define KEY_ESC			65307
+# define KEY_W			65362
+# define KEY_A			65361
+# define KEY_S			65364
+# define KEY_D			65363
 
-#define key_up			119
-#define key_left		97
-#define key_down		115
-#define key_right		100
+# define KEY_UP			119
+# define KEY_LEFT		97
+# define KEY_DOWN		115
+# define KEY_RIGHT		100
 
-#include "minilibx-linux/mlx.h"
-#include "minilibx-linux/mlx_int.h"
-#include "libft/libft.h"
-#include <stdio.h>
-#include <stdlib.h>
+# include "minilibx-linux/mlx.h"
+# include "minilibx-linux/mlx_int.h"
+# include "libft/libft.h"
+# include <stdio.h>
+# include <stdlib.h>
 
 typedef struct s_map
 {
@@ -36,14 +48,7 @@ typedef struct s_map
 	int		img_y;
 }			t_map;
 
-typedef struct s_player
-{
-	void	*player_pose;
-	int		player_x;
-	int		player_y;
-}			t_player;
-
-typedef struct s_game 
+typedef struct s_game
 {
 	void		*mlx;
 	void		*win;
@@ -52,8 +57,10 @@ typedef struct s_game
 	int			colect;
 	int			player;
 	int			exit;
+	void		*player_pose;
+	int			player_x;
+	int			player_y;
 	t_map		t_map;
-	t_player	t_player;
 }			t_game;
 
 int			main(int argc, char *argv[]);
@@ -69,7 +76,7 @@ void		free_map(char **map);
 void		put_image(t_game *data, int x, int y);
 void		create_player(t_game *data);
 int			start_game(t_game *data);
-void		update_player_img(char c,t_game *data);
+void		update_player_img(char c, t_game *data);
 int			handle_key(int keysim, t_game *data);
 int			handle_esc(t_game *data);
 int			handle_w(t_game *data);
@@ -78,19 +85,5 @@ int			handle_s(t_game *data);
 int			handle_d(t_game *data);
 int			render_map(t_game *data);
 int			exit_game(t_game *data);
-
-
-/* void	img_draw(t_game *game, void *image, int x, int y);
-int		map_draw(t_game *game);
-void	game_init(t_game *game);
-char	**read_map(char *path);
-int		map_checker(t_game *game);
-void	gameplay(t_game *game);
-void	player_w(t_game *game);
-void	player_d(t_game *game);
-void	player_s(t_game *game);
-void	player_a(t_game *game);
-int		exit_game(t_game *game);
-void	free_map(char **map); */
 
 #endif
