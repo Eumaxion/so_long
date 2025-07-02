@@ -6,7 +6,7 @@
 /*   By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/07 14:54:46 by mlima-si          #+#    #+#             */
-/*   Updated: 2025/07/02 12:17:51 by mlima-si         ###   ########.fr       */
+/*   Updated: 2025/07/02 15:00:00 by mlima-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char *argv[])
 
 	if (argc == 2)
 	{
-		data.t_map.map = read_map(argv[1]);
+		read_map(&data, argv[1]);
 		if (handle_args(argv[1]) && check_map(&data))
 		{
 			start_game(&data);
@@ -45,8 +45,9 @@ int	main(int argc, char *argv[])
 			if (data.t_map.map)
 			{
 				free_map(data.t_map.map);
-				exit(1);
+				free_map(data.t_map.map_clone);
 			}
+			exit(1);
 		}
 	}
 	else

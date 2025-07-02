@@ -6,7 +6,7 @@
 /*   By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 11:53:07 by mlima-si          #+#    #+#             */
-/*   Updated: 2025/07/02 13:07:05 by mlima-si         ###   ########.fr       */
+/*   Updated: 2025/07/02 13:56:48 by mlima-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	gather_elements(t_game *data)
 {
 	data->mlx = mlx_init();
-	data->win = mlx_new_window(data->mlx, data->t_map.map_x * PIXS,
-			data->t_map.map_y * PIXS, "so_long");
+	data->win = mlx_new_window(data->mlx, data->t_map.map_width * PIXS,
+			data->t_map.map_height * PIXS, "so_long");
 	data->moves = -1;
 	data->t_map.img_backg = mlx_xpm_file_to_image(data->mlx,
 			"./textures/background.xpm",
@@ -30,17 +30,16 @@ void	gather_elements(t_game *data)
 	data->t_map.img_exit = mlx_xpm_file_to_image(data->mlx,
 			"./textures/exit.xpm",
 			&data->t_map.img_x, &data->t_map.img_y);
-	create_player(data);
+	data->player_pose = mlx_xpm_file_to_image(data->mlx,
+			"./textures/player_right.xpm",
+			&data->t_map.img_x, &data->t_map.img_y);
 }
 
-void	create_player(t_game *data)
+void	player_position(t_game *data)
 {
 	int	x;
 	int	y;
 
-	data->player_pose = mlx_xpm_file_to_image(data->mlx,
-			"./textures/player_right.xpm",
-			&data->t_map.img_x, &data->t_map.img_y);
 	y = 0;
 	x = 0;
 	while (data->t_map.map[y])

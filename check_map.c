@@ -6,7 +6,7 @@
 /*   By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 11:53:14 by mlima-si          #+#    #+#             */
-/*   Updated: 2025/07/02 13:04:18 by mlima-si         ###   ########.fr       */
+/*   Updated: 2025/07/02 14:49:53 by mlima-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,9 +110,14 @@ int	check_map(t_game *data)
 	int	i;
 	int	j;
 
-	if (is_rectangle(data->t_map.map) && is_surrounded_wall(data->t_map.map)
-		&& check_itens(data) && is_valid(data->t_map.map))
-	{
+	if (!is_rectangle(data->t_map.map) || !is_surrounded_wall(data->t_map.map))
+		return (map_error(1));
+	else if (!check_itens(data) || !is_valid(data->t_map.map))
+		return (map_error(2));
+	else if (!check_path(data))
+		return (map_error(3));
+	else 
+	{	
 		i = 0;
 		while (data->t_map.map[i])
 		{
@@ -121,8 +126,8 @@ int	check_map(t_game *data)
 				j++;
 			i++;
 		}
-		data->t_map.map_x = j;
-		data->t_map.map_y = i;
+		data->t_map.map_width = j;
+		data->t_map.map_height = i;
 		return (1);
 	}
 	return (0);
