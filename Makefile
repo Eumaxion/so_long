@@ -6,31 +6,46 @@
 #    By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/07 17:11:36 by mlima-si          #+#    #+#              #
-#    Updated: 2025/07/02 14:32:20 by mlima-si         ###   ########.fr        #
+#    Updated: 2025/07/04 16:24:30 by mlima-si         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = main.out
+NAME = so_long
 
-SCR = so_long.c check_map.c read_map.c exit_game.c gather_elements.c render_map.c handle_key.c start_game.c check_path.c errors.c
+SCR = so_long.c check_map.c read_map.c exit_game.c gather_elements.c handle_key.c start_game.c check_path.c errors.c
 
 OBJ = $(SCR:.c=.o)
 
-FLAGS += -lmlx -lXext -lX11 -Lminilibx-linux
-
 CFLAGS += -Wall -Werror -Wextra
+
+LIBFT = ./libft/libft.a
+
+FLAGS += -lmlx -lXext -lX11 -Lminilibx-linux
 
 all: $(NAME)
 
 $(NAME):$(OBJ)
 	@cd libft && make
 	@cd minilibx-linux && make
-	@cc $(OBJ)  $(CFLAGS) ./libft/libft.a  $(FLAGS) -o $(NAME)
+	@cc $(OBJ)  $(CFLAGS) $(LIBFT) $(FLAGS) -o $(NAME)
 
 clean:
+	@echo "Removing objects"
+	@rm -f $(OBJ)
+	@make -C libft clean
+	@make -C minilibx-linux clean
+
+fclean: clean
+	@echo "Removing executable"
 	@rm -f $(NAME) $(OBJ)
 	@make -C libft fclean
-	@make -C minilibx-linux clean
+	@rm -rf ./minilibx-linux
+
 re: clean all
 
-.PHONY: all clean re
+download:
+	@wget https://cdn.intra.42.fr/document/document/36126/minilibx-linux.tgz
+	@tar -xzf minilibx-linux.tgz
+	@rm minilibx-linux.tgz
+	
+.PHONY: all clean fclean re

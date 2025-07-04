@@ -6,7 +6,7 @@
 /*   By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 11:55:52 by mlima-si          #+#    #+#             */
-/*   Updated: 2025/07/02 15:05:11 by mlima-si         ###   ########.fr       */
+/*   Updated: 2025/07/04 16:16:31 by mlima-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@
 # define KEY_DOWN		115
 # define KEY_RIGHT		100
 
-# include "minilibx-linux/mlx.h"
-# include "minilibx-linux/mlx_int.h"
+# include "./minilibx-linux/mlx.h"
 # include "libft/libft.h"
 # include <stdio.h>
 # include <stdlib.h>
@@ -78,6 +77,7 @@ int			check_itens(t_game *data);
 int			is_valid(char **map);
 void		gather_elements(t_game *data);
 void		free_map(char **map);
+void		free_images(t_game *data);
 void		put_image(t_game *data, int x, int y);
 void		player_position(t_game *data);
 int			start_game(t_game *data);

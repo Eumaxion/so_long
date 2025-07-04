@@ -6,7 +6,7 @@
 /*   By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 11:53:03 by mlima-si          #+#    #+#             */
-/*   Updated: 2025/07/02 14:33:00 by mlima-si         ###   ########.fr       */
+/*   Updated: 2025/07/04 16:23:53 by mlima-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,45 @@ void	read_map(t_game *data, char *path)
 	data->t_map.map_clone = ft_split(holder_map, '\n');
 	free(holder_map);
 	close(fd);
+}
+
+void	put_image(t_game *data, int x, int y)
+{
+	char	character;
+
+	character = data->t_map.map[y][x];
+	if (character == '0')
+		mlx_put_image_to_window(data->mlx, data->win,
+			data->t_map.img_backg, x * PIXS, y * PIXS);
+	else if (character == 'P')
+		mlx_put_image_to_window(data->mlx, data->win,
+			data->player_pose, x * PIXS, y * PIXS);
+	else if (character == 'C')
+		mlx_put_image_to_window(data->mlx, data->win,
+			data->t_map.img_colect, x * PIXS, y * PIXS);
+	else if (character == 'E')
+		mlx_put_image_to_window(data->mlx, data->win,
+			data->t_map.img_exit, x * PIXS, y * PIXS);
+	else if (character == '1')
+		mlx_put_image_to_window(data->mlx, data->win,
+			data->t_map.img_wall, x * PIXS, y * PIXS);
+}
+
+int	render_map(t_game *data)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (data->t_map.map[y])
+	{
+		x = 0;
+		while (data->t_map.map[y][x])
+		{
+			put_image(data, x, y);
+			x++;
+		}
+		y++;
+	}
+	return (0);
 }
