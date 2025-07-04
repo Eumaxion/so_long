@@ -6,7 +6,7 @@
 /*   By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 11:52:50 by mlima-si          #+#    #+#             */
-/*   Updated: 2025/07/04 15:53:41 by mlima-si         ###   ########.fr       */
+/*   Updated: 2025/07/04 18:28:03 by mlima-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	handle_esc(t_game *data)
 int	handle_key(int keysim, t_game *data)
 {
 	data->moves += 1;
-	printf("moves: %d\n", data->moves);
+	printf("moves ---------------- %d\n", data->moves);
 	if (keysim == KEY_ESC)
 		handle_esc(data);
 	if (keysim == KEY_W || keysim == KEY_UP)

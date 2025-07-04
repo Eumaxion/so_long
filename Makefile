@@ -6,7 +6,7 @@
 #    By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/07 17:11:36 by mlima-si          #+#    #+#              #
-#    Updated: 2025/07/04 16:24:30 by mlima-si         ###   ########.fr        #
+#    Updated: 2025/07/04 18:30:15 by mlima-si         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,18 +28,19 @@ $(NAME):$(OBJ)
 	@cd libft && make
 	@cd minilibx-linux && make
 	@cc $(OBJ)  $(CFLAGS) $(LIBFT) $(FLAGS) -o $(NAME)
+	@echo "\n------------- COMPILATION DONE -------------\n"
 
 clean:
-	@echo "Removing objects"
 	@rm -f $(OBJ)
 	@make -C libft clean
 	@make -C minilibx-linux clean
+	@echo "\n------------- REMOVED OBJECTS -------------\n"
 
 fclean: clean
-	@echo "Removing executable"
 	@rm -f $(NAME) $(OBJ)
 	@make -C libft fclean
 	@rm -rf ./minilibx-linux
+	@echo "\n------------- REMOVED	 EXECUTABLES -------------\n"
 
 re: clean all
 
@@ -47,5 +48,5 @@ download:
 	@wget https://cdn.intra.42.fr/document/document/36126/minilibx-linux.tgz
 	@tar -xzf minilibx-linux.tgz
 	@rm minilibx-linux.tgz
-	
+	@echo "\n------------- DOWNLOADED -------------\n"
 .PHONY: all clean fclean re
