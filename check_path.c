@@ -6,11 +6,12 @@
 /*   By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 11:53:12 by mlima-si          #+#    #+#             */
-/*   Updated: 2025/07/02 15:05:19 by mlima-si         ###   ########.fr       */
+/*   Updated: 2025/07/04 17:42:42 by mlima-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
 void	flood_fill(int x, int y, t_game *data)
 {
 	char	type;

@@ -6,7 +6,7 @@
 /*   By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 11:53:14 by mlima-si          #+#    #+#             */
-/*   Updated: 2025/07/04 16:34:14 by mlima-si         ###   ########.fr       */
+/*   Updated: 2025/07/04 17:43:25 by mlima-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,8 +116,8 @@ int	check_map(t_game *data)
 		return (map_error(2));
 	else if (!check_path(data))
 		return (map_error(3));
-	else 
-	{	
+	else
+	{
 		i = 0;
 		while (data->t_map.map[i])
 		{

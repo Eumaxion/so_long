@@ -6,7 +6,7 @@
 /*   By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 11:53:07 by mlima-si          #+#    #+#             */
-/*   Updated: 2025/07/02 13:56:48 by mlima-si         ###   ########.fr       */
+/*   Updated: 2025/07/04 17:46:24 by mlima-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,31 @@ void	gather_elements(t_game *data)
 	data->player_pose = mlx_xpm_file_to_image(data->mlx,
 			"./textures/player_right.xpm",
 			&data->t_map.img_x, &data->t_map.img_y);
+}
+
+void	update_door_img(t_game *data)
+{
+	if (data->t_map.map[data->player_y][data->player_x] == 'E')
+	{
+		mlx_destroy_image(data->mlx, data->t_map.img_exit);
+		data->t_map.img_exit = mlx_xpm_file_to_image(data->mlx,
+				"./textures/closed_exit.xpm",
+				&data->t_map.img_x, &data->t_map.img_y);
+	}
+	else if ((data->t_map.map[data->player_y][data->player_x] == 'C'
+		&& data->colect == 1) || data->colect == 0)
+	{
+		mlx_destroy_image(data->mlx, data->t_map.img_exit);
+		data->t_map.img_exit = mlx_xpm_file_to_image(data->mlx,
+				"./textures/o_exit.xpm",
+				&data->t_map.img_x, &data->t_map.img_y);
+	}
+	else
+	{
+		mlx_destroy_image(data->mlx, data->t_map.img_exit);
+		data->t_map.img_exit = mlx_xpm_file_to_image(data->mlx,
+				"./textures/exit.xpm", &data->t_map.img_x, &data->t_map.img_y);
+	}
 }
 
 void	player_position(t_game *data)

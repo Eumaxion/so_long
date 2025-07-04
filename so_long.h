@@ -6,7 +6,7 @@
 /*   By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 11:55:52 by mlima-si          #+#    #+#             */
-/*   Updated: 2025/07/04 16:16:31 by mlima-si         ###   ########.fr       */
+/*   Updated: 2025/07/04 17:45:59 by mlima-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void		put_image(t_game *data, int x, int y);
 void		player_position(t_game *data);
 int			start_game(t_game *data);
 void		update_player_img(char c, t_game *data);
+void		update_door_img(t_game *data);
 int			handle_key(int keysim, t_game *data);
 int			handle_esc(t_game *data);
 int			handle_w(t_game *data);
