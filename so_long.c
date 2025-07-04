@@ -34,6 +34,7 @@ int	main(int argc, char *argv[])
 
 	if (argc == 2)
 	{
+		ft_memset(&data, 0, sizeof(t_game));
 		read_map(&data, argv[1]);
 		if (handle_args(argv[1]) && check_map(&data))
 		{

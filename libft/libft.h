@@ -31,6 +31,7 @@ void	ft_memmove(char *stash);
 char	*release(char *line, char *stash);
 char	*ft_strdup(const char *str);
 char	**ft_split(char const *s, char c);
+void	*ft_memset(void *s, int c, size_t n);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 
 #endif

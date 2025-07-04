@@ -1,6 +1,6 @@
 NAME = libft.a
 
-SCR = ft_strchr.c ft_strcmp.c get_next_line.c get_next_line_utils.c ft_memmove.c ft_strjoin.c ft_strlen.c ft_strdup.c ft_split.c ft_strlcpy.c
+SCR = ft_strchr.c ft_strcmp.c get_next_line.c get_next_line_utils.c ft_memmove.c ft_strjoin.c ft_strlen.c ft_strdup.c ft_split.c ft_strlcpy.c ft_memset.c
 
 OBJ = $(SCR:.c=.o)
 
