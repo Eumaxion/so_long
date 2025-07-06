@@ -6,12 +6,11 @@
 /*   By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 11:52:50 by mlima-si          #+#    #+#             */
-/*   Updated: 2025/07/04 18:28:03 by mlima-si         ###   ########.fr       */
+/*   Updated: 2025/07/06 10:31:39 by mlima-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include <stdio.h>
 
 int	handle_esc(t_game *data)
 {
