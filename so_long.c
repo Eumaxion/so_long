@@ -22,9 +22,9 @@ int	handle_args(char *arg)
 		if (arg[size - 1] == 'r' && arg[size - 2] == 'e'
 			&& arg[size - 3] == 'b' && arg[size - 4] == '.')
 			return (1);
-		else
-			return (0);
 	}
+	write(2, "\033[1;31m🛑ERROR: ", 19);
+	write(2, "file type .ber necessary.\n\033[0m", 31);
 	return (0);
 }
 

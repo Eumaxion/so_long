@@ -20,33 +20,32 @@ CFLAGS += -Wall -Werror -Wextra
 
 LIBFT = ./libft/libft.a
 
+FT_PRINTF = ./libft/ft_printf/libftprintf.a
+
 FLAGS += -lmlx -lXext -lX11 -Lminilibx-linux
 
 all: $(NAME)
 
 $(NAME):$(OBJ)
 	@cd libft && make
+	@cd libft/ft_printf && make
 	@cd minilibx-linux && make
-	@cc $(OBJ)  $(CFLAGS) $(LIBFT) $(FLAGS) -o $(NAME)
+	@cc $(OBJ)  $(CFLAGS) $(LIBFT) $(FT_PRINTF) $(FLAGS) -o $(NAME)
 	@echo "\n------------- COMPILATION DONE -------------\n"
 
 clean:
 	@rm -f $(OBJ)
 	@make -C libft clean
+	@make -C libft/ft_printf clean
 	@make -C minilibx-linux clean
 	@echo "\n------------- REMOVED OBJECTS -------------\n"
 
 fclean: clean
-	@rm -f $(NAME) $(OBJ)
+	@rm -f $(NAME)
 	@make -C libft fclean
-	@rm -rf ./minilibx-linux
+	@make -C libft/ft_printf fclean
 	@echo "\n------------- REMOVED	 EXECUTABLES -------------\n"
 
 re: clean all
 
-download:
-	@wget https://cdn.intra.42.fr/document/document/36126/minilibx-linux.tgz
-	@tar -xzf minilibx-linux.tgz
-	@rm minilibx-linux.tgz
-	@echo "\n------------- DOWNLOADED -------------\n"
 .PHONY: all clean fclean re

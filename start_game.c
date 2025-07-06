@@ -11,9 +11,12 @@
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include <stdio.h>
 
 int	handle_esc(t_game *data)
 {
+	write(1, "\033[1;32m I hope you enjoyed the game...\n", 40);
+	write(1, "...closing!\n\033[0m ", 18);
 	exit_game(data);
 	return (0);
 }
@@ -21,7 +24,7 @@ int	handle_esc(t_game *data)
 int	handle_key(int keysim, t_game *data)
 {
 	data->moves += 1;
-	printf("moves ---------------- %d\n", data->moves);
+	ft_printf("moves ---------------- %d\n", data->moves);
 	if (keysim == KEY_ESC)
 		handle_esc(data);
 	if (keysim == KEY_W || keysim == KEY_UP)

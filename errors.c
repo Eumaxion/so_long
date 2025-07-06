@@ -15,6 +15,7 @@
 void	error_open_fd(void)
 {
 	write(2, "\033[1;31m🛑ERROR: ", 19);
+	write(2, "invalid FD.\n\033[0m", 17);
 	exit(EXIT_FAILURE);
 }
 

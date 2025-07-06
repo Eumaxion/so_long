@@ -39,7 +39,7 @@ int	handle_w(t_game *data)
 	update_player_img('w', data);
 	if (data->t_map.map[data->player_y][data->player_x] == 'E'
 		&& data->colect == 0)
-		exit_game(data);
+		won_game(data);
 	else if (data->t_map.map[data->player_y][data->player_x] == '1')
 		data->player_y += 1;
 	else
@@ -63,7 +63,7 @@ int	handle_a(t_game *data)
 	update_player_img('a', data);
 	if (data->t_map.map[data->player_y][data->player_x] == 'E'
 		&& data->colect == 0)
-		exit_game(data);
+		won_game(data);
 	else if (data->t_map.map[data->player_y][data->player_x] == '1')
 		data->player_x += 1;
 	else
@@ -87,7 +87,7 @@ int	handle_s(t_game *data)
 	update_player_img('s', data);
 	if (data->t_map.map[data->player_y][data->player_x] == 'E'
 		&& data->colect == 0)
-		exit_game(data);
+		won_game(data);
 	else if (data->t_map.map[data->player_y][data->player_x] == '1')
 		data->player_y -= 1;
 	else
@@ -111,7 +111,7 @@ int	handle_d(t_game *data)
 	update_player_img('d', data);
 	if (data->t_map.map[data->player_y][data->player_x] == 'E'
 		&& data->colect == 0)
-		exit_game(data);
+		won_game(data);
 	else if (data->t_map.map[data->player_y][data->player_x] == '1')
 		data->player_x -= 1;
 	else

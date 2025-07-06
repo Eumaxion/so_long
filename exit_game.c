@@ -50,3 +50,17 @@ int	exit_game(t_game *data)
 	exit(1);
 	return (0);
 }
+
+int	won_game(t_game *data)
+{
+	write(1, "\033[1;32m🎉 SUCCESS: ", 22);
+	write(1, "CONGRATULATIONS, YOU FINISHED THE GAME!!! 🎉\n\033[0m", 52);
+	free_map(data->t_map.map);
+	free_map(data->t_map.map_clone);
+	free_images(data);
+	mlx_destroy_window(data->mlx, data->win);
+	mlx_destroy_display(data->mlx);
+	free(data->mlx);
+	exit(1);
+	return (0);
+}

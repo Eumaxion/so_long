@@ -15,9 +15,14 @@
 void	gather_elements(t_game *data)
 {
 	data->mlx = mlx_init();
+	if (!data->mlx)
+	{
+		ft_printf("Erro ao iniciar mlx\n");
+		exit(1);
+	}
 	data->win = mlx_new_window(data->mlx, data->t_map.map_width * PIXS,
-			data->t_map.map_height * PIXS, "so_long");
-	data->moves = -1;
+			data->t_map.map_height * PIXS, "SO_LONG");
+	data->moves = 0;
 	data->t_map.img_backg = mlx_xpm_file_to_image(data->mlx,
 			"./textures/background.xpm",
 			&data->t_map.img_x, &data->t_map.img_y);

@@ -29,9 +29,9 @@
 # define KEY_DOWN		115
 # define KEY_RIGHT		100
 
-# include "./minilibx-linux/mlx.h"
+# include "minilibx-linux/mlx.h"
 # include "libft/libft.h"
-# include <stdio.h>
+# include "libft/ft_printf/ft_printf.h"
 # include <stdlib.h>
 
 typedef struct s_map
@@ -91,6 +91,7 @@ int			handle_s(t_game *data);
 int			handle_d(t_game *data);
 int			render_map(t_game *data);
 int			exit_game(t_game *data);
+int			won_game(t_game *data);
 void		error_open_fd(void);
 int			map_error(int n);
 
