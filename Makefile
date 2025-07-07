@@ -22,11 +22,13 @@ LIBFT = ./libft/libft.a
 
 FT_PRINTF = ./libft/ft_printf/libftprintf.a
 
+MLX_LIB = ./minilibx-linux
+
 FLAGS += -lmlx -lXext -lX11 -Lminilibx-linux
 
 all: $(NAME)
 
-$(NAME):$(OBJ)
+$(NAME):$(MLX_LIB) $(OBJ)
 	@cd libft && make
 	@cd libft/ft_printf && make
 	@cd minilibx-linux && make
@@ -45,6 +47,12 @@ fclean: clean
 	@make -C libft fclean
 	@make -C libft/ft_printf fclean
 	@echo "\n------------- REMOVED	 EXECUTABLES -------------\n"
+
+$(MLX_LIB):
+	@wget https://cdn.intra.42.fr/document/document/36126/minilibx-linux.tgz
+	@tar -xzf minilibx-linux.tgz
+	@rm minilibx-linux.tgz
+	@echo "\n------------- DOWNLOADED -------------\n"
 
 re: clean all
 

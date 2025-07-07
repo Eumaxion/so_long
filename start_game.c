@@ -12,6 +12,18 @@
 
 #include "so_long.h"
 
+void	print_moviments(int keysim, t_game *data)
+{
+	if (keysim == KEY_W || keysim == KEY_UP
+		|| keysim == KEY_A || keysim == KEY_LEFT
+		|| keysim == KEY_S || keysim == KEY_DOWN
+		|| keysim == KEY_D || keysim == KEY_RIGHT)
+	{
+		data->moves += 1;
+		ft_printf("moves ---------------- %d\n", data->moves);
+	}
+}
+
 int	handle_esc(t_game *data)
 {
 	write(1, "\033[1;32m I hope you enjoyed the game...\n", 40);
@@ -22,8 +34,6 @@ int	handle_esc(t_game *data)
 
 int	handle_key(int keysim, t_game *data)
 {
-	data->moves += 1;
-	ft_printf("moves ---------------- %d\n", data->moves);
 	if (keysim == KEY_ESC)
 		handle_esc(data);
 	if (keysim == KEY_W || keysim == KEY_UP)
@@ -46,6 +56,7 @@ int	handle_key(int keysim, t_game *data)
 		data->player_x += 1;
 		handle_d(data);
 	}
+	print_moviments(keysim, data);
 	return (0);
 }
 
