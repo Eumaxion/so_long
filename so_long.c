@@ -52,6 +52,6 @@ int	main(int argc, char *argv[])
 		}
 	}
 	else
-		exit (1);
+		map_error(4);
 	return (0);
 }
