@@ -6,7 +6,7 @@
 /*   By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 11:55:52 by mlima-si          #+#    #+#             */
-/*   Updated: 2025/07/04 17:45:59 by mlima-si         ###   ########.fr       */
+/*   Updated: 2025/10/19 23:15:22 by mlima-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 # define MALLOC_ERROR	1
 # define WIDTH 			600
-# define HEIGHT 			600
+# define HEIGHT 		600
 # define PIXS			50
 
-# define KEY_ESC			65307
+# define KEY_ESC		65307
 # define KEY_W			65362
 # define KEY_A			65361
 # define KEY_S			65364
@@ -29,9 +29,9 @@
 # define KEY_DOWN		115
 # define KEY_RIGHT		100
 
-# include "minilibx-linux/mlx.h"
-# include "libft/libft.h"
-# include "libft/ft_printf/ft_printf.h"
+# include "../libraries/minilibx-linux/mlx.h"
+# include "../libraries/libft/libft.h"
+# include "../libraries/libft/ft_printf/ft_printf.h"
 # include <stdlib.h>
 
 typedef struct s_map

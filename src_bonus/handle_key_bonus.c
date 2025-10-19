@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_key.c                                       :+:      :+:    :+:   */
+/*   handle_key_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 11:53:05 by mlima-si          #+#    #+#             */
-/*   Updated: 2025/07/04 17:45:02 by mlima-si         ###   ########.fr       */
+/*   Updated: 2025/10/20 00:36:26 by mlima-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	update_player_img(char c, t_game *data)
 {
@@ -18,25 +18,28 @@ void	update_player_img(char c, t_game *data)
 	update_door_img(data);
 	if (c == 'w')
 		data->player_pose = mlx_xpm_file_to_image(data->mlx,
-				"./textures/player_up.xpm",
+				"./assets/textures/player_up.xpm",
 				&data->t_map.img_x, &data->t_map.img_y);
 	if (c == 'a')
 		data->player_pose = mlx_xpm_file_to_image(data->mlx,
-				"./textures/player_left.xpm",
+				"./assets/textures/player_left.xpm",
 				&data->t_map.img_x, &data->t_map.img_y);
 	if (c == 's')
 		data->player_pose = mlx_xpm_file_to_image(data->mlx,
-				"./textures/player_down.xpm",
+				"./assets/textures/player_down.xpm",
 				&data->t_map.img_x, &data->t_map.img_y);
 	if (c == 'd')
 		data->player_pose = mlx_xpm_file_to_image(data->mlx,
-				"./textures/player_right.xpm",
+				"./assets/textures/player_right.xpm",
 				&data->t_map.img_x, &data->t_map.img_y);
 }
 
 int	handle_w(t_game *data)
 {
 	update_player_img('w', data);
+	if (data->t_map.map[data->player_y][data->player_x] == 'X'
+		&& data->colect == 0)
+		lose_game(data);
 	if (data->t_map.map[data->player_y][data->player_x] == 'E'
 		&& data->colect == 0)
 		won_game(data);
@@ -61,6 +64,9 @@ int	handle_w(t_game *data)
 int	handle_a(t_game *data)
 {
 	update_player_img('a', data);
+	if (data->t_map.map[data->player_y][data->player_x] == 'X'
+		&& data->colect == 0)
+		lose_game(data);
 	if (data->t_map.map[data->player_y][data->player_x] == 'E'
 		&& data->colect == 0)
 		won_game(data);
@@ -85,6 +91,9 @@ int	handle_a(t_game *data)
 int	handle_s(t_game *data)
 {
 	update_player_img('s', data);
+	if (data->t_map.map[data->player_y][data->player_x] == 'X'
+		&& data->colect == 0)
+		lose_game(data);
 	if (data->t_map.map[data->player_y][data->player_x] == 'E'
 		&& data->colect == 0)
 		won_game(data);
@@ -109,6 +118,9 @@ int	handle_s(t_game *data)
 int	handle_d(t_game *data)
 {
 	update_player_img('d', data);
+	if (data->t_map.map[data->player_y][data->player_x] == 'X'
+		&& data->colect == 0)
+		lose_game(data);
 	if (data->t_map.map[data->player_y][data->player_x] == 'E'
 		&& data->colect == 0)
 		won_game(data);

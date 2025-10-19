@@ -1,0 +1,80 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   exit_game_bonus.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/02 11:53:09 by mlima-si          #+#    #+#             */
+/*   Updated: 2025/10/20 00:38:57 by mlima-si         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "so_long_bonus.h"
+
+void	free_map(char **map)
+{
+	int	i;
+
+	i = 0;
+	while (map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
+}
+
+void	free_images(t_game *data)
+{
+	if (data->t_map.img_backg)
+		mlx_destroy_image(data->mlx, data->t_map.img_backg);
+	if (data->t_map.img_colect)
+		mlx_destroy_image(data->mlx, data->t_map.img_colect);
+	if (data->t_map.img_exit)
+		mlx_destroy_image(data->mlx, data->t_map.img_exit);
+	if (data->t_map.img_wall)
+		mlx_destroy_image(data->mlx, data->t_map.img_wall);
+	if (data->player)
+		mlx_destroy_image(data->mlx, data->player_pose);
+}
+
+int	exit_game(t_game *data)
+{
+	free_map(data->t_map.map);
+	free_map(data->t_map.map_clone);
+	free_images(data);
+	mlx_destroy_window(data->mlx, data->win);
+	mlx_destroy_display(data->mlx);
+	free(data->mlx);
+	exit(1);
+	return (0);
+}
+
+int	won_game(t_game *data)
+{
+	write(1, "\033[1;32m🎉 SUCCESS: ", 22);
+	write(1, "CONGRATULATIONS, YOU FINISHED THE GAME!!! 🎉\n\033[0m", 52);
+	free_map(data->t_map.map);
+	free_map(data->t_map.map_clone);
+	free_images(data);
+	mlx_destroy_window(data->mlx, data->win);
+	mlx_destroy_display(data->mlx);
+	free(data->mlx);
+	exit(1);
+	return (0);
+}
+
+int	lose_game(t_game *data)
+{
+	write(1, "\033[1;34m FAILURE: ", 18);
+	write(1, "THE CAT CATHCHED YOU, BE MORE CAREFUL NEXT TIME!!! \n\033[0m", 57);
+	free_map(data->t_map.map);
+	free_map(data->t_map.map_clone);
+	free_images(data);
+	mlx_destroy_window(data->mlx, data->win);
+	mlx_destroy_display(data->mlx);
+	free(data->mlx);
+	exit(1);
+	return (0);
+}

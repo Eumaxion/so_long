@@ -3,7 +3,7 @@
 
 ## Gameplay Preview
 
-![Preview of the game](./textures/preview.png)
+![Preview of the game](preview.png)
 ## Description
 
 The goal was to create a small 2D game using the MiniLibX graphical library.
@@ -26,7 +26,17 @@ Compile the mandatory part:
 Run the game with a map file:  
 (there are some examples that you can use in maps folder)  
 
-```./so_long maps/map.ber```
+```./so_long ./assets/maps/map.ber```
+
+Compile the bonus part:  
+
+```make bonus```
+
+Run the game with a map file:  
+(there are some examples that you can use in maps folder)  
+
+```./so_long_bonus ./assets/maps/bonus_map.ber```
+
 ## Skills Developed
 
 Using the MiniLibX graphics library  
