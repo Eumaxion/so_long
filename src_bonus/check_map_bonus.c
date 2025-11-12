@@ -6,13 +6,13 @@
 /*   By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 11:53:14 by mlima-si          #+#    #+#             */
-/*   Updated: 2025/10/20 00:08:38 by mlima-si         ###   ########.fr       */
+/*   Updated: 2025/11/11 23:37:47 by mlima-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-int	is_rectangle(char *map[])
+int	is_rectangle(char **map)
 {
 	int	i;
 
@@ -28,7 +28,7 @@ int	is_rectangle(char *map[])
 	return (1);
 }
 
-int	is_surrounded_wall(char *map[])
+int	is_surrounded_wall(char **map)
 {
 	int	i;
 	int	j;
@@ -87,7 +87,7 @@ int	check_itens(t_game *data)
 	return (1);
 }
 
-int	is_valid(char *map[])
+int	is_valid(char **map)
 {
 	int	i;
 	int	j;

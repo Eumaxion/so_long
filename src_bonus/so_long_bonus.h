@@ -6,7 +6,7 @@
 /*   By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 11:55:52 by mlima-si          #+#    #+#             */
-/*   Updated: 2025/10/20 00:39:37 by mlima-si         ###   ########.fr       */
+/*   Updated: 2025/11/12 00:40:29 by mlima-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,7 @@ int			won_game(t_game *data);
 int			lose_game(t_game *data);
 void		error_open_fd(void);
 int			map_error(int n);
+void		display_moves(t_game *data);
+void	print_moviments(t_game *data);
 
 #endif

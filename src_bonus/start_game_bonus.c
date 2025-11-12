@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   start_game.c                                       :+:      :+:    :+:   */
+/*   start_game_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 11:52:50 by mlima-si          #+#    #+#             */
-/*   Updated: 2025/10/19 23:52:22 by mlima-si         ###   ########.fr       */
+/*   Updated: 2025/11/12 00:51:38 by mlima-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void	print_moviments(int keysim, t_game *data)
+void	print_moviments(t_game *data)
 {
-	if (keysim == KEY_W || keysim == KEY_UP
-		|| keysim == KEY_A || keysim == KEY_LEFT
-		|| keysim == KEY_S || keysim == KEY_DOWN
-		|| keysim == KEY_D || keysim == KEY_RIGHT)
-	{
-		data->moves += 1;
-		ft_printf("moves ---------------- %d\n", data->moves);
-	}
+	data->moves += 1;
+	ft_printf("moves ---------------- %d\n", data->moves);
+	display_moves(data);
 }
 
 int	handle_esc(t_game *data)
@@ -56,7 +51,6 @@ int	handle_key(int keysim, t_game *data)
 		data->player_x += 1;
 		handle_d(data);
 	}
-	print_moviments(keysim, data);
 	return (0);
 }
 
@@ -66,5 +60,6 @@ int	start_game(t_game *data)
 	render_map(data);
 	mlx_key_hook(data->win, handle_key, data);
 	mlx_hook(data->win, 17, 0, exit_game, data);
+	//mlx_loop_hook(data->mlx, char_sprite, data);
 	return (0);
 }

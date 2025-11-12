@@ -1,16 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_map.c                                         :+:      :+:    :+:   */
+/*   read_map_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 11:53:03 by mlima-si          #+#    #+#             */
-/*   Updated: 2025/10/19 23:54:54 by mlima-si         ###   ########.fr       */
+/*   Updated: 2025/11/12 00:44:54 by mlima-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
+
+void	display_moves(t_game *data)
+{
+	char	*str;
+	
+	str = ft_itoa(data->moves);
+	mlx_string_put(data->mlx, data->win, 25, 20, 0xFFFFFF, "MOVES: ");
+	mlx_string_put(data->mlx, data->win, 70, 20, 0xFFFFFF, str);
+	free(str);
+}
 
 void	read_map(t_game *data, char *path)
 {
@@ -79,5 +89,6 @@ int	render_map(t_game *data)
 		}
 		y++;
 	}
+	print_moviments(data);
 	return (0);
 }

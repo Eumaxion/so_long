@@ -6,7 +6,7 @@
 /*   By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 12:43:30 by mlima-si          #+#    #+#             */
-/*   Updated: 2025/07/02 12:43:44 by mlima-si         ###   ########.fr       */
+/*   Updated: 2025/11/12 00:26:44 by mlima-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ char	*ft_strdup(const char *str);
 char	**ft_split(char const *s, char c);
 void	*ft_memset(void *s, int c, size_t n);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
+char	*ft_itoa(int n);
 
 #endif
