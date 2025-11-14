@@ -3,7 +3,7 @@
 
 ## Gameplay Preview
 
-![Preview of the game](preview.png)
+![Preview of the game](assets/textures/preview.png)
 ## Description
 
 The goal was to create a small 2D game using the MiniLibX graphical library.
