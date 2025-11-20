@@ -1,0 +1,8 @@
+/*
+diferents colectables;
+door animation;
+character animation;
+enemy animation/moviment(random if far, chase if close);
+game over/win screen;
+camera fallows the pĺayer;
+ */

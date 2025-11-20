@@ -6,7 +6,7 @@
 /*   By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 11:55:52 by mlima-si          #+#    #+#             */
-/*   Updated: 2025/11/12 00:40:29 by mlima-si         ###   ########.fr       */
+/*   Updated: 2025/11/20 12:39:38 by mlima-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,12 +92,13 @@ int			handle_a(t_game *data);
 int			handle_s(t_game *data);
 int			handle_d(t_game *data);
 int			render_map(t_game *data);
+int			exit_wrapper(void *param);
 int			exit_game(t_game *data);
 int			won_game(t_game *data);
 int			lose_game(t_game *data);
 void		error_open_fd(void);
 int			map_error(int n);
 void		display_moves(t_game *data);
-void	print_moviments(t_game *data);
+void		print_moviments(t_game *data);
 
 #endif

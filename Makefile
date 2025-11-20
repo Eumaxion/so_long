@@ -6,7 +6,7 @@
 #    By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/07 17:11:36 by mlima-si          #+#    #+#              #
-#    Updated: 2025/10/20 00:04:18 by mlima-si         ###   ########.fr        #
+#    Updated: 2025/11/20 12:26:04 by mlima-si         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,7 @@ $(NAME): $(OBJ)
 	@cd ./libraries/libft && make
 	@cd ./libraries/libft/ft_printf && make
 	@cd ./libraries/minilibx-linux && make
+	@rm -f $(BONUS_OBJS) $(BONUS_NAME)
 	@cc $(OBJ) $(CFLAGS) $(LIBFT) $(FT_PRINTF) $(FLAGS) -o $(NAME)
 	@echo "$(GREEN)\n COMPILED $(RESET)\n"
 
@@ -68,6 +69,7 @@ $(BONUS_NAME): $(BONUS_OBJS)
 	@cd ./libraries/libft && make
 	@cd ./libraries/libft/ft_printf && make
 	@cd ./libraries/minilibx-linux && make
+	@rm -f $(OBJ) $(NAME)
 	@cc $(BONUS_OBJS) $(CFLAGS) $(LIBFT) $(FT_PRINTF) $(FLAGS) -o $(BONUS_NAME)
 	@echo "$(GREEN)\n BONUS COMPILED $(RESET)\n"
 

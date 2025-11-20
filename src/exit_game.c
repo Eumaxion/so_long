@@ -6,7 +6,7 @@
 /*   By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 11:53:09 by mlima-si          #+#    #+#             */
-/*   Updated: 2025/07/04 15:59:24 by mlima-si         ###   ########.fr       */
+/*   Updated: 2025/11/20 12:37:39 by mlima-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,11 @@ void	free_images(t_game *data)
 		mlx_destroy_image(data->mlx, data->t_map.img_wall);
 	if (data->player)
 		mlx_destroy_image(data->mlx, data->player_pose);
+}
+
+int	exit_wrapper(void *param)
+{
+    return exit_game((t_game *)param);
 }
 
 int	exit_game(t_game *data)

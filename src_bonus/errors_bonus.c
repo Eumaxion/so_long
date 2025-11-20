@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   errors_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 14:02:59 by mlima-si          #+#    #+#             */
-/*   Updated: 2025/10/19 23:52:04 by mlima-si         ###   ########.fr       */
+/*   Updated: 2025/11/20 12:42:33 by mlima-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,9 @@ int	map_error(int n)
 		exit(EXIT_FAILURE);
 	}
 	return (0);
+}
+
+int	exit_wrapper(void *param)
+{
+    return exit_game((t_game *)param);
 }

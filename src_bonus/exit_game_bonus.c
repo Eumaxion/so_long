@@ -6,7 +6,7 @@
 /*   By: mlima-si <mlima-si@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 11:53:09 by mlima-si          #+#    #+#             */
-/*   Updated: 2025/10/20 00:38:57 by mlima-si         ###   ########.fr       */
+/*   Updated: 2025/11/20 12:42:06 by mlima-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	won_game(t_game *data)
 
 int	lose_game(t_game *data)
 {
-	write(1, "\033[1;34m FAILURE: ", 18);
+	write(1, "\033[1;31m FAILURE: ", 18);
 	write(1, "THE CAT CATHCHED YOU, BE MORE CAREFUL NEXT TIME!!! \n\033[0m", 57);
 	free_map(data->t_map.map);
 	free_map(data->t_map.map_clone);
